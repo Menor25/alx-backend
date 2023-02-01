@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""instantiate the Babel object"""
-
-from flask import Flask, request, render_template
+"""Sets up basic Flask app."""
+from flask import Flask
 from flask_babel import Babel
-
+from flask import render_template
 
 app = Flask(__name__)
 babel = Babel(app)
@@ -20,7 +19,7 @@ class Config(object):
 app.config.from_object(Config)
 
 
-app.route("/")
+@app.route("/")
 def index():
     """View function for route /."""
     return render_template("1-index.html")
